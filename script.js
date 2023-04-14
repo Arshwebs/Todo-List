@@ -1,14 +1,14 @@
 let update = false;
-let localStorageKey = 0;
+
 
 window.addEventListener("load", () => {
-	console.log(localStorage);
+	
 	if (localStorage.length != 0) {
 		for (let keys in localStorage) {
 			let container = document.querySelector(".data");
 			let a = document.createElement("div");
 			a.setAttribute("class", "data-container");
-			console.log(localStorage.getItem(keys));
+			
 			if (localStorage.getItem(keys) != null) {
 				let senddata = `
 		   
@@ -39,8 +39,8 @@ function add() {
 			let container = document.querySelector(".data");
 			let a = document.createElement("div");
 			a.setAttribute("class", "data-container");
-			localStorage.setItem(localStorageKey + 1, data.value);
-			localStorageKey += 1;
+			localStorage.setItem(Math.floor(Math.random() * 90) + 10, data.value);
+			
 			let senddata = `
 		   
 						<div class="dataview">
@@ -76,10 +76,10 @@ function add() {
 }
 
 function edit(data) {
-	console.log(data);
+	
 	data.setAttribute("id", "updating");
 	let getdata = data.parentElement.previousElementSibling.lastElementChild;
-	console.log(getdata.innerText);
+	
 
 	let changeData = document.getElementById("getdata");
 	changeData.value = getdata.innerText;
@@ -91,10 +91,10 @@ function edit(data) {
 
 function remove(data) {
 	let verifyLocal = data.parentElement.previousElementSibling.lastElementChild.innerText;
-	console.log(verifyLocal);
+	
 	for (let keys in localStorage) {
-		console.log(keys);
-		console.log(keys + localStorage.getItem(keys));
+		
+		
 
 		if (localStorage.getItem(keys) === verifyLocal) {
 			localStorage.removeItem(keys);
@@ -108,7 +108,7 @@ function remove(data) {
 function checkbox(element) {
 	let a = element;
 	a.parentElement.lastElementChild.classList.toggle("strikethrough");
-	console.log(element);
+	
 }
 
 function storage() {}
