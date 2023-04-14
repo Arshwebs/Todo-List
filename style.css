@@ -10,6 +10,9 @@ body {
 	box-sizing: border-box;
 }
 
+button{
+	padding:5px;
+}
 .main-container {
 	position: relative;
 	margin: 0 auto;
