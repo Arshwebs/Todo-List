@@ -111,4 +111,4 @@ function checkbox(element) {
 	
 }
 
-function storage() {}
+
