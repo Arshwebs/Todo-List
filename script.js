@@ -1,5 +1,5 @@
 let update = false;
-
+let updateKey = "";
 
 window.addEventListener("load", () => {
 	
@@ -63,6 +63,10 @@ function add() {
 		} else {
 			let getalldata = document.querySelector("#updating");
 			let g = document.querySelector("#getdata");
+
+			localStorage.setItem(updateKey, g.value);
+			updateKey = "";
+
 			let getdata = getalldata.parentElement.previousElementSibling.lastElementChild;
 			getdata.innerText = g.value;
 
@@ -79,7 +83,12 @@ function edit(data) {
 	
 	data.setAttribute("id", "updating");
 	let getdata = data.parentElement.previousElementSibling.lastElementChild;
-	
+
+	for (let keys in localStorage) {
+		if (localStorage.getItem(keys) === getdata.innerText) {
+			updateKey = keys;
+		}
+	}
 
 	let changeData = document.getElementById("getdata");
 	changeData.value = getdata.innerText;
